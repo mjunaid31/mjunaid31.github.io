@@ -15044,9 +15044,12 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\frac{\partial B_r '}{\partial t'}=-\frac{\partial (\alpha ' B_{\phi}')}{\partial z'}+\frac{\partial^2 B_r'}{\partial z ^{'2}}$</p>
-<p>$\frac{\partial B_{\phi}'}{\partial t'}=\frac{D}{\alpha_0 '} B_{r} '+\frac{\partial^2 B_{\phi} '}{\partial z^{'2} }$</p>
-<p>$D=-\frac{q\Omega \alpha _0 h^3}{\eta _t^2}$</p>
+<p>Including $\alpha$ effect in $\frac{\partial B_r }{\partial t}$ and  $\Omega$ effect in $\frac{\partial B_{\phi}}{\partial t}$, unitless form is,</p>
+$$\frac{\partial B_r '}{\partial t'}=-\frac{\partial (\alpha ' B_{\phi}')}{\partial z'}+\frac{\partial^2 B_r'}{\partial z ^{'2}}$$$$\frac{\partial B_{\phi}'}{\partial t'}=-q\Omega ' B_{r} '+\frac{\partial^2 B_{\phi} '}{\partial z^{'2} }
+$$<p>Now in terms of Dynamo number
+$$\frac{\partial B_r '}{\partial t'}=-\frac{\partial (\alpha ' B_{\phi}')}{\partial z'}+\frac{\partial^2 B_r'}{\partial z ^{'2}}$$</p>
+$$\frac{\partial B_{\phi}'}{\partial t'}=\frac{D}{\alpha_0 '} B_{r} '+\frac{\partial^2 B_{\phi} '}{\partial z^{'2} }$$<p>where,
+$$D=-\frac{q\Omega \alpha _0 h^3}{\eta _t^2}$$</p>
 <p>for galaxies, q&gt;0 and D&lt;0</p>
 
 </div>
@@ -15076,7 +15079,7 @@ class="
     <span class="c1"># Apply boundary conditions at i=Nz-1</span>
     <span class="n">sol</span><span class="p">[</span><span class="n">Nz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="n">Nz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="n">Nz</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="n">Nz</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="n">Nz</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">dz</span> <span class="o">*</span> <span class="n">dz</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sol</span>
-
+<span class="c1"># finite difference method to calculate the first derivative of a function</span>
 <span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">dz</span><span class="p">,</span><span class="n">Nz</span><span class="p">):</span>
     <span class="n">sol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Nz</span><span class="p">))</span>
     <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
@@ -15087,8 +15090,9 @@ class="
         <span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dz</span><span class="o">*</span><span class="n">dz</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sol</span>
 
+<span class="c1">#coupled range-kutte time stepping</span>
 <span class="k">def</span> <span class="nf">solve2</span><span class="p">(</span><span class="n">Br_t0</span><span class="p">,</span><span class="n">Bphi_t0</span><span class="p">,</span><span class="n">Nz</span><span class="p">,</span><span class="n">Nt</span><span class="p">,</span><span class="n">time_plot</span><span class="p">,</span><span class="n">Bphi_z0</span><span class="p">,</span><span class="n">Bphi_zf</span><span class="p">,</span><span class="n">Br_z0</span><span class="p">,</span><span class="n">Br_zf</span><span class="p">,</span><span class="n">D</span><span class="p">):</span>
-    <span class="c1">#intials()</span>
+    
     <span class="n">Br</span><span class="o">=</span><span class="p">[]</span>
     <span class="n">Bphi</span><span class="o">=</span><span class="p">[]</span>
     <span class="n">decay</span><span class="o">=</span><span class="p">[]</span>
@@ -15135,7 +15139,7 @@ class="
     <span class="n">pitch</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Br</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Bphi</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">Br</span><span class="p">,</span><span class="n">Bphi</span><span class="p">,</span><span class="n">pitch</span><span class="p">,</span><span class="n">decay</span>
 
-
+<span class="c1">#function to plot results</span>
 <span class="k">def</span> <span class="nf">plotfn</span><span class="p">(</span><span class="n">Br</span><span class="p">,</span> <span class="n">Bphi</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="n">decay</span><span class="p">,</span> <span class="n">time_plot</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">Nz</span><span class="p">):</span>
     <span class="n">m</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">decay</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -15172,7 +15176,7 @@ class="
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Decay rate is&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span><span class="mi">4</span><span class="p">))</span>
 
 
-
+<span class="c1">#function to find critical Dynamo number</span>
 <span class="k">def</span> <span class="nf">D_c</span><span class="p">(</span><span class="n">solve2</span><span class="p">,</span><span class="n">precision</span><span class="p">):</span>
     <span class="n">D</span><span class="o">=</span><span class="mi">0</span>
     <span class="n">h</span><span class="o">=</span><span class="mi">2</span>
@@ -15196,6 +15200,22 @@ class="
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Initial functions used are:</p>
+<ul>
+<li>$B_r(t_0,z)=f_{1_{t0}}(z) = 6\sin\left(\pi z\right)$</li>
+<li>$B_{\phi}(t_0,z)=f_{2_{t0}}(z) = 6\sin\left(\frac{\pi z}{2}\right) + \sin(3\pi z)$</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15250,6 +15270,22 @@ class="
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Analyzing-for-different-alpha-and-dynamo-number(D)"><strong>Analyzing for different alpha and dynamo number(D)</strong><a class="anchor-link" href="#Analyzing-for-different-alpha-and-dynamo-number(D)">&#182;</a></h4><ul>
+<li>D=-1</li>
+<li>alpha=1</li>
+</ul>
+<p>$\alpha$ and D are function of r, so they are constants for a fixed r</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15322,6 +15358,21 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>D= -7</li>
+<li>alpha= 1</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15394,6 +15445,21 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>D=-3</li>
+<li>alpha=1</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15466,6 +15532,21 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>D=-3</li>
+<li>alpha=6</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15538,6 +15619,21 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>D=-7</li>
+<li>alpha=6</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15610,6 +15706,21 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>D=-2.7</li>
+<li>alpha=1</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15682,6 +15793,23 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Finding-and-analyzing-critical-Dynamo-number">Finding and analyzing critical Dynamo number<a class="anchor-link" href="#Finding-and-analyzing-critical-Dynamo-number">&#182;</a></h3><p>for $\alpha$ =</p>
+<ul>
+<li>1</li>
+<li>3</li>
+<li>10</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15944,7 +16072,7 @@ Critical dynamo number, |D_c| = 2.15625
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>we can see exponential decay (-ve decay rate) becoming exponential growth (+ve decay rate) when |D|&gt;|D_c|, where D_c is the critical dynammo number.</p>
+<p>we can see exponential decay (-ve decay rate) becoming exponential growth (+ve decay rate) when |D|&gt;|D_c|, where D_c is the critical dynamo number.</p>
 <p>Also we can see D_c is decreasing for increasing alpha</p>
 
 </div>
