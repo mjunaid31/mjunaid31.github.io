@@ -37,13 +37,15 @@ Some text
 
 ## abstract
 
-<img src="banner.jpg" alt="Alt Text" width="175" height="175">
+<!-- Resized image with HTML -->
+<img src="banner.jpg" alt="Alt Text" width="72" height="72">
 
+<!-- Label and reference in Markdown -->
 [img-label]: banner.jpg "Banner Image"
 
-
-
 The resized image labeled as ![Banner Image][img-label] is a prominent feature of the webpage.
+
+
 
 
 
