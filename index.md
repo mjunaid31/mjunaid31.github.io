@@ -36,6 +36,7 @@ Some text
 - Instruction 3
 
 ## abstract
+<img src="banner.jpg" alt="Alt Text" width="72" height="72">
 
 ![Alt Text](banner.jpg){width=72 height=72}
 
