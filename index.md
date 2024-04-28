@@ -37,8 +37,16 @@ Some text
 
 ## abstract
 <img src="banner.jpg" alt="Alt Text" width="72" height="72">
+<img src="banner.jpg" alt="Alt Text" width="72" height="72">
 
-![Alt Text](banner.jpg){width=72 height=72}
+[img-label]: banner.jpg "Banner Image"
+
+
+
+The resized image labeled as ![Banner Image][img-label] is a prominent feature of the webpage.
+
+
+
 
 
 Here goes all the budgets
