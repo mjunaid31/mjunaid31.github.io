@@ -17,20 +17,3 @@ Here's a brief introduction about myself... (Add your content here)
 
 
 
-
-# Heading 1
-hgdfjhsgfjhsgdf
-## Heading 2
-khgasdjkhgasdjhgasjdhgasjdhg
-### Heading 3
-sssajgsfdgasfdhgasfdhgasdf
-
-[Heading 1](#heading-1)
-[Heading 2](#heading-2)
-[Heading 3](#heading-3)
-
-
-
-# <a name="heading-1"></a> Heading 1
-## <a name="heading-2"></a> Heading 2
-### <a name="heading-3"></a> Heading 3
