@@ -1,3 +1,4 @@
+![Banner Image](banner.jpg)  This is the homepage of my website!
 ## Table of Contents
 
 * [My Website](#my-website)
