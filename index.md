@@ -24,7 +24,7 @@
 - [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
-- [results](#reults)
+- [results](#results)
 
 
 ## Introduction
