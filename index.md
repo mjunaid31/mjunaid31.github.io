@@ -37,6 +37,9 @@ Some text
 
 ## abstract
 
+![Alt Text](banner.jpg){width: size_unit}
+
+
 Here goes all the budgets
 
 ## What's included
