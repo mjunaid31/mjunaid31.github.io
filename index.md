@@ -23,7 +23,7 @@
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
-- [Thanks](#thanks)
+- [Thank](#thank)
 - [results](#results)
 
 
@@ -76,7 +76,7 @@ Editor preferences are available in the [editor config](https://reponame/blob/ma
 
 - <https://github.com/usernamecreator1>
 
-## Thanks
+## Thank
 
 Some Text
 
