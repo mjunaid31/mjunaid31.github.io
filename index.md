@@ -36,8 +36,8 @@ Some text
 - Instruction 3
 
 ## abstract
-<img src="banner.jpg" alt="Alt Text" width="72" height="72">
-<img src="banner.jpg" alt="Alt Text" width="72" height="72">
+
+<img src="banner.jpg" alt="Alt Text" width="175" height="175">
 
 [img-label]: banner.jpg "Banner Image"
 
