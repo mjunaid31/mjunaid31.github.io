@@ -1,33 +1,3 @@
-## Table of Contents
-
-* [My Website](#my-website)
-    * [About Me](#about-me)
-    * [Projects](#projects)
-    * [Contact](#contact)
-
-# My Website (Heading Level 1)
-
-This is the homepage of my website!
-
-* [About Me](about.md) - Learn more about me and my interests.
-* [Projects](projects.md) - Check out some of the projects I've been working on.
-* [Contact](contact.md) - Get in touch with me.
-
-Here's a brief introduction about myself... (Add your content here)
-
-
-- [Heading 1](#heading-1)
-- [Heading 2](#heading-2)
-- [Heading 3](#heading-3)
-# Heading 1
-
-jdfhaksjdhflakjsdfhlakjsdfh
-## Heading 2
-sdjflkajsdbff
-### Heading 3
-akskdfbhdsfjhDSGFJSHGF
-
-
 <p align="center">
   <a href="https://example.com/">
     <img src="https://via.placeholder.com/72" alt="Logo" width=72 height=72>
