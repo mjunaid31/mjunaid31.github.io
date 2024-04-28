@@ -17,14 +17,14 @@
 
 ## Table of contents
 
-- [Introduction](#quick-start)
+- [Introduction](#introduction)
 - [Status](#status)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
-- [results](#copyright-and-license)
+- [results](#reults)
 
 
 ## Introduction
