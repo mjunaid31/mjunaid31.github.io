@@ -29,7 +29,8 @@
 
 ## Introduction
 
-Some text
+Task 1 and 2 is gien [here](https://github.com/mjunaid31/Project_MHD.git)
+
 
 - Instruction 1
 - Instruction 2
