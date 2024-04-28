@@ -17,17 +17,17 @@
 
 ## Table of contents
 
-- [Quick start](#quick-start)
+- [Introduction](#quick-start)
 - [Status](#status)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
+- [results](#copyright-and-license)
 
 
-## Quick start
+## Introduction
 
 Some text
 
@@ -76,7 +76,7 @@ Editor preferences are available in the [editor config](https://reponame/blob/ma
 
 Some Text
 
-## Copyright and license
+## results
 
 Code and documentation copyright 2023-2024 the authors. Code released under the [MIT License](https://reponame/blob/master/LICENSE).
 
