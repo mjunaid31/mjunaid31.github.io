@@ -29,7 +29,7 @@
 
 ## Introduction
 
-Task 1 and 2 is gien [here](https://github.com/mjunaid31/Project_MHD.git)
+Task 1 and 2 is gien [here](https://github.com/mjunaid31/Project_MHD/blob/main/Task%201%20and%202.ipynb)
 
 
 - Instruction 1
