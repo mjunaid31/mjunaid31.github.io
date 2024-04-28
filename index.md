@@ -37,7 +37,7 @@ Some text
 
 ## abstract
 
-![Alt Text](banner.jpg){width: size_unit}
+![Alt Text](banner.jpg){width: size_unit/2}
 
 
 Here goes all the budgets
