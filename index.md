@@ -18,7 +18,7 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Status](#status)
+- [abstract](#abstract)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
@@ -35,7 +35,7 @@ Some text
 - Instruction 2
 - Instruction 3
 
-## Status
+## abstract
 
 Here goes all the budgets
 
