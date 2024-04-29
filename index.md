@@ -69,7 +69,7 @@ $$\overline{B}(t+dt)=\overline{B}(t)+\frac{1}{6}(K1+2K2+3K3+K4)$$
 
 Antisymmetric ghost zones are used to maintain boundary condition
 
-!["A cute cat"](cat.jpg)
+!["A cute cat"](plot.png)
 
 - Task 1  given [here](https://mjunaid31.github.io/Task1/)
 - Task 2 is given [here](https://mjunaid31.github.io/Task2/)
