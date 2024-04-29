@@ -14579,16 +14579,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
-<li><a href="#abstract">abstract</a></li>
+<p>(not complete)</p>
+<h3 align="center" style="font-size: 40px;">P464 Project</h3><h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
+<li><a href="#abstract">Abstract</a></li>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#computational-methods">Computational methods</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 </ul>
-<h2 id="abstract">abstract<a class="anchor-link" href="#abstract">&#182;</a></h2><p>Investigating galactic mean-field dynamos stems from a quest to comprehend the emergence and progression of magnetic fields within galaxies. Studying this dynamo is significant because it offers a framework to understand how galactic motions and turbulence are converted into magnetic fields. This knowledge sheds light on star formation, cosmic ray containment within the galaxy, and potentially even galactic evolution. Our research aims to elucidate the effects of vertical outflows in these systems, given their significant influence on gas and magnetic field distributions within galaxies. These outflows play a pivotal role in determining star formation rates and facilitating matter-energy transport processes.  In this study, our goal was to progressively increase $V_z$ over time, thereby leading to the quenching of the dynamo.</p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Induction equation given by Galactic mean field theory is</p>
+<h2 id="Abstract"><strong>Abstract</strong><a class="anchor-link" href="#Abstract">&#182;</a></h2><p>Investigating galactic mean-field dynamos stems from a quest to comprehend the emergence and progression of magnetic fields within galaxies. Studying this dynamo is significant because it offers a framework to understand how galactic motions and turbulence are converted into magnetic fields. This knowledge sheds light on star formation, cosmic ray containment within the galaxy, and potentially even galactic evolution. Our research aims to elucidate the effects of vertical outflows in these systems, given their significant influence on gas and magnetic field distributions within galaxies. These outflows play a pivotal role in determining star formation rates and facilitating matter-energy transport processes.  In this study, our goal was to progressively increase $V_z$ over time, thereby leading to the quenching of the dynamo.</p>
+<h2 id="Introduction"><strong>Introduction</strong><a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Induction equation given by Galactic mean field theory is</p>
 $$\frac{\partial \overline B_r}{\partial t} = - \frac{\overline V_r}{r} \frac{\partial}{\partial r}(r\overline B_r) -  \frac{\partial}{\partial z}(\overline V_z \overline B_r) -  \frac{\partial}{\partial z}(\alpha \overline B_{\phi}) + \eta_t \left[  \frac{\partial}{\partial r} \left( \frac{1}{r}  \frac{\partial}{\partial r}(r \overline B_r)\right) +  \frac{\partial ^2 \overline B_r}{\partial z^2} \right]$$$$\frac{\partial \overline B_{\phi}}{\partial t} = - q\Omega \overline B_{r} -  \frac{\partial}{\partial r}(\overline V_r \overline B_{\phi}) -  \frac{\partial}{\partial z}(\overline V_z \overline B_{\phi}) +  \frac{\partial}{\partial z}(\alpha \overline B_{r}) + \eta_t \left[  \frac{\partial}{\partial r} \left( \frac{1}{r}  \frac{\partial}{\partial r}(r \overline B_{\phi})\right) +  \frac{\partial ^2 \overline B_{\phi}}{\partial z^2} \right]$$<p>where $\overline B_r$ and  $\overline B_{\phi}$ are the components of the magnetic field, $\overline V_r$, and $\overline V_z$ are the components of the velocity field, $\alpha$ is the dynamo alpha effect, $\Omega$ is the angular velocity of the galaxy, $q$ is the shear parameter, and $\eta_t$ is the turbulent magnetic diffusivity.</p>
 <p>Unlke Task2 where we discarded velocity terms, here, we include terms with $\overline V_z$, to study impact of vertical outflows on the evolution of galactic magnetic fields. In particular $\overline V_z$ is increased with time to show quencing of the dynamo. Then the unitless induction equation is given by 
 $$\frac{\partial B_r'}{\partial t'} = \frac{\partial}{\partial z'}(V_z'B_r') - \frac{\partial}{\partial z'}(\alpha'B_{\phi}') + \frac{\partial^2 B_r'}{\partial z'^2}$$</p>
-$$\frac{\partial B_{\phi}'}{\partial t'}=-q\Omega' B_r'+\frac{\partial }{\partial z'}(V_z' B_{\phi}')-\frac{\partial }{\partial z}(\alpha' B_r')+\frac{\partial^2 B_{\phi}'}{\partial z'^2}$$<h2 id="Computational-methods">Computational methods<a class="anchor-link" href="#Computational-methods">&#182;</a></h2><p>The spatial derivatives are calculated using the finite difference method. 2nd order finite difference method is given by: 
+$$\frac{\partial B_{\phi}'}{\partial t'}=-q\Omega' B_r'+\frac{\partial }{\partial z'}(V_z' B_{\phi}')-\frac{\partial }{\partial z}(\alpha' B_r')+\frac{\partial^2 B_{\phi}'}{\partial z'^2}$$<h2 id="Computational-methods"><strong>Computational methods</strong><a class="anchor-link" href="#Computational-methods">&#182;</a></h2><p>The spatial derivatives are calculated using the finite difference method. 2nd order finite difference method is given by: 
 $$
 f'_{i} = \frac{{-f_{i-1} + f_{i+1}}}{2\delta x}
 $$</p>
@@ -14602,10 +14606,49 @@ $$</p>
 $$
 f'_{i} = \frac{3f_i - 4f_{i-1} + f_{i-2}}{2\delta x}, \quad f"_{i} = \frac{2f_i - 5f_{i-1} + 4f_{i-2} - f_{i-3}}{\delta x^2}.
 $$<p>As we are not comsidering z to be changing with time, partial differential equations are approximated to ordianry differential equations and use RK4 Time stepping for time evolution. The evolution function is:</p>
-<p>$\frac{\partial \overline B}{\partial t} = f(\overline B)$</p>
-<p>The algorithm is given by:</p>
+$$\frac{\partial \overline B}{\partial t} = f(\overline B)$$<p>The algorithm is given by:</p>
 $$K1=dt(f(\overline{B}))$$$$K2=dt(f(\overline{B}+K1/2))$$$$K3=dt(f(\overline{B}+K2/2))$$$$K4=dt(f(\overline{B}+K3))$$$$\overline{B}(t+dt)=\overline{B}(t)+\frac{1}{6}(K1+2K2+3K3+K4)$$<p>Antisymmetric ghost zones are used to maintain boundary condition</p>
-<p><img src="plot_0.8.png" alt="&quot;A cute cat&quot;"></p>
+<p>Initial functions used are:</p>
+<ul>
+<li>$B_r(t_0,z)= \cos\left(\frac{\pi}{2}z/5 \right)$</li>
+<li>$B_{\phi}(t_0,z)= \cos\left(\frac{\pi}{2}z/5 + \pi\right)$</li>
+</ul>
+<h4 id="pitch-angle:">pitch angle:<a class="anchor-link" href="#pitch-angle:">&#182;</a></h4><p>$\arctan \left( \frac{B_r}{B_{\phi}} \right)$ is the pitch angle and it plotted against z at different time points</p>
+<h4 id="%7C$%5Coverline%7BB%7D$%7C:">|$\overline{B}$|:<a class="anchor-link" href="#%7C$%5Coverline%7BB%7D$%7C:">&#182;</a></h4><p>$|\overline{B}|= \sqrt{ (B_{\phi})^2 + (B_r)^2 } $ is poltted against time after averaging over z. The slope from linear fit is the decay rate.</p>
+<h2 id="Results"><strong>Results</strong><a class="anchor-link" href="#Results">&#182;</a></h2><p>we have given different functions for $\overline{V_z}$ and anayzed the evolution of $\overline{B_{phi}}$ and $\overline{B_r}$, pitch angle and $|\overline{B}|$ averaged over the z spatial domain:</p>
+<ul>
+<li>#### <strong>For $\overline{V_z}=0$</strong></li>
+</ul>
+<p>First we observe how the above mentioned quantities evolve for $\overline{V_z}=0$.</p>
+<p><img src="plot_0.png" alt="&quot;$\overline{V_z}$=0&quot;"></p>
+<p>We can observe a negative exponential decay after the exponential growth due to $\alpha$ effect when  $\overline{V_z}=0$</p>
+<ul>
+<li>#### <strong>For $\overline{V_z}=0.8$</strong></li>
+</ul>
+<p>Here we consider $\overline{V_z}$ to be constant in time</p>
+<p><img src="plot_0.8.png" alt="&quot;$\overline{V_z}$=0.8&quot;"></p>
+<p>We can observe that $|\overline{B}|$ averaged over the z becomes saturated after some time due to outflow.</p>
+<ul>
+<li>#### <strong>For $\overline{V_z}=t/51$</strong></li>
+</ul>
+<p>Here we chose a linear function of t as $\overline{V_z}$</p>
+<p><img src="linearvz.png" alt="&quot;$\overline{V_z}$=t/51&quot;"></p>
+<p>eventhough we could control the decay, growth is happening as time increases.</p>
+<ul>
+<li>#### <strong>For $\overline{V_z}= \frac{L}{1 + e^{-k(t - t_0)}}$</strong></li>
+</ul>
+<p>here $\overline{V_z}$ is a funtion of time. I have chosen L = 0.874, k = 0.1, $t_0$ = 0</p>
+<p><img src="logisticfn.png" alt="&quot;$\overline{V_z}=\frac{L}{1 + e^{-k(t - t_0)}}$&quot;"></p>
+<p>We can observe that $|\overline{B}|$ averaged over the z becomes saturated after some time due to outflow. the decay is not observed here.</p>
+<ul>
+<li>#### <strong>For $\overline{V_z}=0.5$</strong></li>
+</ul>
+<p>we have chosen $\overline{V_z}=0.5$ just to show how the |$\overline{B}$| evolves, when value of $\overline{V_z}$ is not enough to saturate |$\overline{B}$|</p>
+<p><img src="less.png" alt="&quot;$\overline{V_z}$=0.5&quot;"></p>
+<p>We can observe that decay rate is small compared with the case where $\overline{V_z}=0$</p>
+<h2 id="Conclusion"><strong>Conclusion</strong><a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>This project explored the influence of different vertical outflow functions $V_z$ on the magnetic field evolution in galactic mean field dynamo theory. We analyzed how these functions impact the long-term behavior of the dynamo process, specifically focusing on magnetic field saturation.</p>
+<p>Our results demonstrate that the choice of the $V_z$ function has a significant effect on the dynamo.Certain functions lead to a decay of the magnetic field over time, while others induce growth. To achieve magnetic field saturation or quenching, the $V_z$ function needs to exhibit characteristics that fall between these two extremes.</p>
+<p>In conclusion, our investigation highlights the critical role of the vertical outflow in regulating magnetic field growth within the galactic dynamo framework.  Further studies incorporating more complex outflow models and real-world observations can provide a deeper understanding of how vertical outflows govern galactic dynamo activity.</p>
 <ul>
 <li>Task 1  given <a href="https://mjunaid31.github.io/Task1/">here</a></li>
 <li>Task 2 is given <a href="https://mjunaid31.github.io/Task2/">here</a></li>
