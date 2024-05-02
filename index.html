@@ -14629,12 +14629,15 @@ $$<p>Additionally, to maintain boundary conditions, antisymmetric ghost zones ar
 <p><img src="plot_0.01.png" alt="&quot;$\overline{V_z}$=0&quot;"></p>
 <p>We can observe the magnetic field initially grows due to the $\alpha -\Omega $ effect.</p>
 <h4 id="For-$%5Coverline%7BV_z%7D=1.045$"><strong>For $\overline{V_z}=1.045$</strong><a class="anchor-link" href="#For-$%5Coverline%7BV_z%7D=1.045$">&#182;</a></h4><p>Here we consider $\overline{V_z}$ to be constant in time</p>
-<p><img src="plot_1.045.png" alt="&quot;$\overline{V_z}$=0.8&quot;"></p>
+<p><img src="quen.png" alt="&quot;$\overline{V_z}$=0.8&quot;"></p>
 <p>We can observe that $|\overline{B}|$ averaged over the z becomes quenched and saturated after some time due to outflow.</p>
 <h4 id="For-$%5Coverline%7BV_z%7D(t)=-%5Cfrac%7BL%7D%7B1-+-e%5E%7B-k(t---t_0)%7D%7D$"><strong>For $\overline{V_z}(t)= \frac{L}{1 + e^{-k(t - t_0)}}$</strong><a class="anchor-link" href="#For-$%5Coverline%7BV_z%7D(t)=-%5Cfrac%7BL%7D%7B1-+-e%5E%7B-k(t---t_0)%7D%7D$">&#182;</a></h4><p>here $\overline{V_z}$ is a funtion of time. The function $ \frac{L}{1 + e^{-k(t - t_0)}} $ is known as the logistic function, or sigmoid function. It's characterized by several parameters: $ L $ represents the maximum value the function can approach, $ k $ controls the steepness of the curve, $ t_0 $ denotes the midpoint of the function, and $ t $ serves as the independent variable. As $ t $ varies, the function produces an S-shaped curve, starting from zero and gradually increasing towards $ L $ as $ t $ moves away from $ t_0 $. 
 I have chosen L = 1.045, k = 4, $t_0$ = 0</p>
 <p><img src="plot_1.0449999978460944.png" alt="&quot;$\overline{V_z}=\frac{L}{1 + e^{-k(t - t_0)}}$&quot;"></p>
 <p>We notice that the average magnitude of $\overline{B}$ along the z-axis reaches a saturation point over time, influenced by the outflow. We do not observe any decay or growth after  some time</p>
+<h4 id="For-$%5Coverline%7BV_z%7D(t)=1.5*t$"><strong>For $\overline{V_z}(t)=1.5*t$</strong><a class="anchor-link" href="#For-$%5Coverline%7BV_z%7D(t)=1.5*t$">&#182;</a></h4><p>we have chosen $\overline{V_z}$ as increasing function with time</p>
+<p><img src="plot_7.5.png" alt="&quot;$\overline{V_z}$=t/38&quot;"></p>
+<p>We can observe that |$\overline{B}$| decays over time after showing a growth due to $\alpha-\Omega$ effect.</p>
 <h4 id="For-$%5Coverline%7BV_z%7D=0.5$"><strong>For $\overline{V_z}=0.5$</strong><a class="anchor-link" href="#For-$%5Coverline%7BV_z%7D=0.5$">&#182;</a></h4><p>we have chosen $\overline{V_z}=0.5$ just to show how the |$\overline{B}$| evolves, when value of $\overline{V_z}$ is not enough to reach steady state of |$\overline{B}$|</p>
 <p><img src="plot_0.5.png" alt="&quot;$\overline{V_z}$=0.5&quot;"></p>
 <p>We can observe that growth rate is small compared with the case where $\overline{V_z}=0$</p>
